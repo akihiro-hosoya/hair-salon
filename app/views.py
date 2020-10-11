@@ -5,7 +5,13 @@ from .models import User, Staff, News, StyleCategory, Style, MenuCategory, Menu
 
 class IndexView(View):
     def get(self, request, *args, **kwargs):
-        return render(request, 'app/index.html')
+        news_data = News.objects.order_by('-id')[0:3]
+        stylist_data = Staff.objects.order_by('id')
+
+        return render(request, 'app/index.html', {
+            'news_data': news_data,
+            'stylist_data': stylist_data,
+        })
 
 class AboutView(TemplateView):
     template_name = 'app/about.html'

@@ -42,10 +42,10 @@
                         <a class="nav-link" href="/">Top</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">News</a>
+                        <a class="nav-link" href="{% url 'news_list' %}">News</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Menu</a>
@@ -68,9 +68,9 @@
                             <a class="nav-link" href="{% url 'account_staff_signup' %}">スタッフ登録</a>
                         </li>
                         {% endif %}
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="">Mypage</a>
-                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'profile' %}">Mypage</a>
+                    </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="">Cart</a>
                     </li> -->

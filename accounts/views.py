@@ -1,8 +1,10 @@
 from django.views import View
-from accounts.forms import SignupUserForm, SignupStaffForm
+from accounts.forms import SignupUserForm, SignupStaffForm, ProfileUserForm
 from django.shortcuts import render, redirect
 from allauth.account import views
 from django.views.generic.edit import FormView
+from app.models import Staff, User
+from accounts.models import CustomUser
 
 class SignupView(views.SignupView):
     template_name = 'accounts/signup.html'
@@ -38,3 +40,44 @@ class LogoutView(views.LogoutView):
         if self.request.user.is_authenticated:
             self.logout()
         return redirect('/')
+
+class ProfileView(View):
+    def get(self, request, *args, **kwargs):
+        user_data = User.objects.get(account_core_id=request.user.id)
+
+        return render(request, 'accounts/profile.html', {
+            'user_data': user_data,
+        })
+
+class ProfileEditView(View):
+    def get(self, request, *args, **kwargs):
+        user_data = User.objects.get(account_core_id=request.user.id)
+        form = ProfileUserForm(
+            request.POST or None,
+            initial={
+                'name': user_data.account_core.name,
+                'furigana': user_data.furigana,
+                'address': user_data.address,
+                'tel': user_data.tel,
+            }
+        )
+
+        return render(request, 'accounts/profile_edit.html', {
+            'form': form,
+            'user_data': user_data
+        })
+
+    def post(self, request, *args, **kwargs):
+        form = ProfileUserForm(request.POST or None)
+        if form.is_valid():
+            user_data = User.objects.get(account_core_id=request.user.id)
+            user_data.account_core.name = form.cleaned_data['name']
+            user_data.furigana = form.cleaned_data['furigana']
+            user_data.address = form.cleaned_data['address']
+            user_data.tel = form.cleaned_data['tel']
+            user_data.save()
+            return redirect('profile')
+
+        return render(request, 'accounts/profile.html', {
+            'form': form
+        })

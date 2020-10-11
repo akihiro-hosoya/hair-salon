@@ -39,3 +39,9 @@ class SignupStaffForm(SignupForm):
         staff.tel = self.cleaned_data['tel']
         staff.save()
         return user
+
+class ProfileUserForm(forms.Form):
+    name = forms.CharField(max_length=30, label='名前')
+    furigana = forms.CharField(max_length=30, label='フリガナ')
+    address = forms.CharField(max_length=100, label='住所')
+    tel = forms.CharField(max_length=100, label='電話番号')

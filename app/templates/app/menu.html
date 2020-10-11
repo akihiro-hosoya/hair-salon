@@ -1,0 +1,35 @@
+{% extends "app/base.html" %}
+{% block content %}
+
+
+<div class="main-wrap">
+    <div class="container">
+        <div class="row">
+            <!-- Menu -->
+            <!-- タイトル -->
+            <div class="col-12 my-5">
+                <h2 class="text-center">MENU</h2>
+            </div>
+
+            <!-- 一覧 -->
+            <div class="col-12">
+                <div class="row">
+                    <div class="">
+                        {% for category in menu_category %}
+                            <h4>{{ category.name }}</h4>
+                            <hr>
+                            {% for menu in menu_data %}
+                                {% if menu.category == category %}
+                                <p>{{ menu.title }}：{{ menu.price }}円</p>
+                                <p>{{ menu.description }}</p>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

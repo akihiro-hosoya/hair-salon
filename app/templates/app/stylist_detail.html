@@ -1,0 +1,47 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="main-wrap">
+    <div class="container">
+        <div class="row">
+            <!-- スタイリスト詳細 -->
+            <!-- タイトル -->
+            <div class="col-12 my-4">
+                <h2 class="text-center">STYLIST</h2>
+            </div>
+
+            <div class="col-12 my-4">
+                <!-- ---------- スタイリスト詳細 ---------- -->
+                <div class="row">
+                    <!-- スタイリスト画像 -->
+                    <div class="col-4">
+                        <div class="d-flex justify-content-center">
+                            <img class="img-fluid" style="height: 10rem; width: 10rem;"
+                                src="{{ stylist_data.user.image.url }}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="border">
+                            <p>{{ stylist_data.user.position }}</p>
+                            <h5>{{ stylist_data.user.name }}</h5>
+                            <p>{{ stylist_data.user.description|linebreaksbr|truncatechars:100 }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <div class="col-12">
+                <div class="text-center">
+                    <div class="btn btn-dark">
+                        <a href="{% url 'stylist_list' %}" class="d-block">
+                            <span class="text-white">BACK</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {% endblock content %}

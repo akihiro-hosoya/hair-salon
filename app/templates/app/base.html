@@ -59,9 +59,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Reserve</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Shop</a>
-                    </li>
                     {% if user.is_authenticated %}
                         {% if user.is_superuser %}
                         <li class="nav-item">
@@ -70,6 +67,9 @@
                         {% endif %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'profile' %}">Mypage</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'item_list' %}">Shop</a>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="">Cart</a>

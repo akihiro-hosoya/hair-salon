@@ -71,9 +71,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'item_list' %}">Shop</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="">Cart</a>
-                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'order' %}">
+                            Cart
+                            <span class="badge badge-pill badge-warning">
+
+                            </span>
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link nav-link-end" href="{% url 'account_logout' %}">Logout</a>
                     </li>

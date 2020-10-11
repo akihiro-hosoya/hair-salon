@@ -1,0 +1,17 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+<div class="main-wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 my-4 px-0">
+                <div class="text-center my-5">
+                    <h1 class="mb-5">ご注文ありがとうございました。</h1>
+                    <p class="mb-4">今後ともご愛顧賜りますようお願い申し上げます。</p>
+                    <a class="btn btn-primary" href="{% url 'item_list' %}">買い物を続ける</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

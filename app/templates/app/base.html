@@ -57,7 +57,7 @@
                         <a class="nav-link" href="{% url 'style_list' %}">Style</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Reserve</a>
+                        <a class="nav-link" href="{% url 'stylist_choice' %}">Reserve</a>
                     </li>
                     {% if user.is_authenticated %}
                         {% if user.is_superuser %}

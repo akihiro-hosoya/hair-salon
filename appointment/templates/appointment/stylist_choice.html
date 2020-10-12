@@ -1,0 +1,38 @@
+{% extends "app/base.html" %}
+{% block content %}
+        <div class="main-wrap">
+            <div class="container">
+                <div class="row">
+                    <!-- タイトル -->
+                    <div class="col-12">
+                        <h2>RESERVE</h2>
+                    </div>
+
+                    <!-- スタイリスト選択画面 -->
+                    <div class="col-12">
+                        <div>
+                            <h4>スタイリスト選択画面</h4>
+                        </div>
+                        <div>
+                            {% for stylist in stylist_data %}
+                            <div class="card">
+                                {% if stylist.stylist_staff.image %}
+                                <img src="{{ stylist.stylist_staff.image.url }}" alt="" class="card-img-top">
+                                {% endif %}
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ stylist.stylist_staff.account_core.name }}</h5>
+                                    <h6 class="card-subtitle">{{ stylist.stylist_staff.furigana }}</h6>
+                                    <h6 class="card-subtitle">{{ stylist.stylist_staff.position }}</h6>
+                                    <p class="card-text">
+                                        {{ stylist.user.description }}
+                                    </p>
+                                    <a href="{% url 'calendar' stylist.pk %}" class="btn btn-secondary">予約</a>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'ec',
+    'appointment',
 ]
 
 MIDDLEWARE = [
@@ -141,3 +142,6 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 # 画像
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Stripe
+STRIPE_SECRET_KEY = 'sk_test_51HbJXRA2iF7L75ITTqxYqvhZfpTpb6ewZbRz50QKWldxpdHIOh9bdSeoPmQOU2tEYtXZyGRR3uc13PCdz9gOKNEO00Ls75qgVD'

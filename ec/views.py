@@ -7,6 +7,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from app.models import User, Staff
 from accounts.models import CustomUser
+import stripe
+from django.conf import settings
 
 # Create your views here.
 class ItemListView(ListView):
@@ -114,12 +116,25 @@ class PaymentView(LoginRequiredMixin, View):
 
     def post(self, request, *args, **kwargs):
         user = User.objects.get(account_core_id=request.user.id)
+        stripe.api_key = settings.STRIPE_SECRET_KEY
         order = Order.objects.get(user=user, ordered=False)
-        order_items = order.items.all()
+        token = request.POST.get('stripeToken')
         amount = order.get_total()
+        order_items = order.items.all()
+        item_list = []
+        for order_item in order_items:
+            item_list.append(str(order_item.item) + '：' + str(order_item.quantity))
+        description = ' '.join(item_list)
+
+        charge = stripe.Charge.create(
+            amount=amount,
+            currency='jpy',
+            description=description,
+            source=token,
+        )
 
         payment = Payment(user=user)
-        payment.stripe_charge_id = 'test_stripe_charge_id'
+        payment.stripe_charge_id = charge['id']
         payment.amount = amount
         payment.save()
 

@@ -64,7 +64,7 @@ class ProfileEditView(View):
             form = ProfileUserForm(
                 request.POST or None,
                 initial={
-                    'name': user_data.account_core.name,
+                    'name': user_data.name,
                     'furigana': user_data.furigana,
                     'address': user_data.address,
                     'tel': user_data.tel,
@@ -76,7 +76,7 @@ class ProfileEditView(View):
             form = ProfileStaffForm(
                 request.POST or None,
                 initial={
-                    'name': staff_data.account_core.name,
+                    'name': staff_data.name,
                     'furigana': staff_data.furigana,
                     'description': staff_data.description,
                     'address': staff_data.address,
@@ -93,7 +93,7 @@ class ProfileEditView(View):
             form = ProfileUserForm(request.POST or None)
             if form.is_valid():
                 user_data = User.objects.get(account_core_id=request.user.id)
-                user_data.account_core.name = form.cleaned_data['name']
+                user_data.name = form.cleaned_data['name']
                 user_data.furigana = form.cleaned_data['furigana']
                 user_data.address = form.cleaned_data['address']
                 user_data.tel = form.cleaned_data['tel']
@@ -105,7 +105,7 @@ class ProfileEditView(View):
             form = ProfileStaffForm(request.POST or None)
             if form.is_valid():
                 staff_data = Staff.objects.get(account_core_id=request.user.id)
-                staff_data.account_core.name = form.cleaned_data['name']
+                staff_data.name = form.cleaned_data['name']
                 staff_data.furigana = form.cleaned_data['furigana']
                 staff_data.description = form.cleaned_data['description']
                 staff_data.address = form.cleaned_data['address']

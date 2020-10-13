@@ -84,7 +84,7 @@ class BookingView(View):
         form = BookingForm(
             request.POST or None,
             initial={
-                'name': user_data.account_core.name,
+                'name': user_data.name,
                 'furigana': user_data.furigana,
                 'address': user_data.address,
                 'tel': user_data.tel,

@@ -8,7 +8,7 @@ class Stylist(models.Model):
     detail = models.OneToOneField(Staff, verbose_name='スタイリスト', on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.detail.account_core.name
+        return self.detail.name
 
 class Booking(models.Model):
     staff = models.ForeignKey(Staff, verbose_name='スタイリスト', on_delete=models.CASCADE)

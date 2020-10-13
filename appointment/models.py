@@ -5,13 +5,13 @@ from django.utils import timezone
 from accounts.models import CustomUser
 
 class Stylist(models.Model):
-    stylist_staff = models.OneToOneField(Staff, verbose_name='スタイリスト', on_delete=models.CASCADE)
+    detail = models.OneToOneField(Staff, verbose_name='スタイリスト', on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.stylist_staff.account_core.name
+        return self.detail.account_core.name
 
 class Booking(models.Model):
-    stylist = models.ForeignKey(Stylist, verbose_name='スタイリスト', on_delete=models.CASCADE)
+    staff = models.ForeignKey(Staff, verbose_name='スタイリスト', on_delete=models.CASCADE)
     name = models.CharField('名前', max_length=50, null=True, blank=True)
     furigana = models.CharField('フリガナ', max_length=50, null=True, blank=True)
     tel = models.CharField('電話番号', max_length=30, null=True, blank=True)
@@ -22,4 +22,4 @@ class Booking(models.Model):
     def __str__(self):
         start = timezone.localtime(self.start).strftime('%Y/%m/%d %H:%M')
         end = timezone.localtime(self.end).strftime('%Y/%m/%d %H:%M')
-        return f'{self.name} {start} ~ {end} {self.stylist}'
+        return f'{self.name} {start} ~ {end} {self.staff}'

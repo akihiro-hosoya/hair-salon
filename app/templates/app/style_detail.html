@@ -24,7 +24,8 @@
                     </div>
                     <div class="col-8">
                         <div class="border p-3">
-                            <p>Stylist：<img src="{{ stylist_data.image }}" alt="a">{{ style_data.stylist.account_core.name }}<br>
+                            <img src="{{ style_data.stylist.image.url }}" alt="">
+                            <p>Stylist：{{ style_data.stylist.account_core.name }}<br>
                                 Style：{{ style_data.category }}</p>
                             <hr>
                             <p>{{ style_data.name }}</p>

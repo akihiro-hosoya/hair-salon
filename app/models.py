@@ -27,6 +27,18 @@ class Staff(models.Model):
     def __str__(self):
         return self.furigana
 
+# サロン
+class Salon(models.Model):
+    mail = models.CharField('メールアドレス', max_length=200, null=True, blank=True)
+    tel = models.CharField('電話番号', max_length=200, null=True, blank=True)
+    opening = models.CharField('開店時間', max_length=30, null=True, blank=True)
+    closed = models.CharField('閉店時間', max_length=30, null=True, blank=True)
+    regular_holiday = models.CharField(('定休日'), max_length=100, null=True, blank=True)
+    address = models.CharField(('住所'), max_length=100, null=True, blank=True)
+    access = models.TextField('アクセス', default="", blank=True)
+
+    def __str__(self):
+        return self.mail
 
 # News
 class News(models.Model):

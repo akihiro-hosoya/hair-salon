@@ -14,19 +14,19 @@
                             <h4>スタイリスト選択画面</h4>
                         </div>
                         <div>
-                            {% for stylist in stylist_data %}
+                            {% for staff in staff_data %}
                             <div class="card">
-                                {% if stylist.stylist_staff.image %}
-                                <img src="{{ stylist.stylist_staff.image.url }}" alt="" class="card-img-top">
+                                {% if staff.image %}
+                                <img src="{{ staff.image.url }}" alt="" class="card-img-top">
                                 {% endif %}
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ stylist.stylist_staff.account_core.name }}</h5>
-                                    <h6 class="card-subtitle">{{ stylist.stylist_staff.furigana }}</h6>
-                                    <h6 class="card-subtitle">{{ stylist.stylist_staff.position }}</h6>
+                                    <h5 class="card-title">{{ staff.account_core.name }}</h5>
+                                    <h6 class="card-subtitle">{{ staff.furigana }}</h6>
+                                    <h6 class="card-subtitle">{{ staff.position }}</h6>
                                     <p class="card-text">
-                                        {{ stylist.user.description }}
+                                        {{ staff.description }}
                                     </p>
-                                    <a href="{% url 'calendar' stylist.pk %}" class="btn btn-secondary">予約</a>
+                                    <a href="{% url 'calendar' staff.pk %}" class="btn btn-secondary">予約</a>
                                 </div>
                             </div>
                             {% endfor %}

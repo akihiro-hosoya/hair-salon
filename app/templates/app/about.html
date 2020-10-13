@@ -1,6 +1,5 @@
 {% extends "app/base.html" %}
 {% block content %}
-
 <div class="main-wrap">
     <div class="container">
         <div class="row">
@@ -68,12 +67,12 @@
                         <div class="col-6">
                             <!-- 店舗情報 -->
                             <h4>Design</h4>
-                            <p class="border-bottom">住所：東京都新宿区西新宿...</p>
-                            <p class="border-bottom">Tel：000-0000-0000</p>
-                            <p class="border-bottom">Mail：salon@gmail.com</p>
-                            <p class="border-bottom">営業時間：10：00〜20:00</p>
-                            <p class="border-bottom">定休日：火曜日、年末年始</p>
-                            <p class="border-bottom">最寄駅：都営大江戸線西新宿駅より徒歩2分</p>
+                            <p class="border-bottom">住所：{{ salon_data.address }}</p>
+                            <p class="border-bottom">Tel：{{ salon_data.tel }}</p>
+                            <p class="border-bottom">Mail：{{ salon_data.mail }}</p>
+                            <p class="border-bottom">営業時間：{{ salon_data.opening }}〜{{ salon_data.closed }}</p>
+                            <p class="border-bottom">定休日：{{ salon_data.regular_holiday }}</p>
+                            <p class="border-bottom">最寄駅：{{ salon_data.access }}</p>
                         </div>
                         <div class="col-6">
                             <div class="border text-center px-0">

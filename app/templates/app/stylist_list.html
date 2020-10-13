@@ -17,17 +17,17 @@
 
             <div class="col-12">
                 <div class="row">
-                    {% for stylist in stylist_data %}
+                    {% for staff in staff_data %}
                     <div class="col-3">
                         <div class="card">
-                            {% if stylist.image %}
-                                <img  class="card-img-top img-fluid" src="{{ stylist.image.url }}" alt="">
+                            {% if staff.image %}
+                                <img  class="card-img-top img-fluid" src="{{ staff.image.url }}" alt="">
                             {% endif %}
                             <div class="card-body">
-                                <p>{{ stylist.position }}</p>
-                                <h5>{{ stylist.account_core.name }}</h5>
+                                <p>{{ staff.position }}</p>
+                                <h5>{{ staff.account_core.name }}</h5>
                             </div>
-                            <a class="stretched-link" href="{% url 'stylist_detail' stylist.pk  %}"></a>
+                            <a class="stretched-link" href="{% url 'stylist_detail' staff.pk  %}"></a>
                         </div>
                     </div>
                     {% endfor %}

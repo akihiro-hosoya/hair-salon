@@ -10,6 +10,8 @@
                 <h2 class="text-center">PROFILE</h2>
             </div>
 
+            <!-- 顧客用 -->
+            {% if user.account_type == 1 %}
             <!-- プロフィール欄 -->
             <div class="col-12">
                 <table class="profile_table mb-4 p-0">
@@ -37,6 +39,50 @@
                     </tbody>
                 </table>
             </div>
+            {% else %}
+            <!-- スタッフ用 -->
+            <!-- プロフィール欄 -->
+            <div class="col-12">
+                <table class="profile_table mb-4 p-0">
+                    <tbody>
+                        <tr>
+                            <th class="header">メールアドレス</th>
+                            <td class="data">{{ staff_data.account_core.email }}</td>
+                        </tr>
+                        <tr>
+                            <th class="header">名前</th>
+                            <td class="data">{{ staff_data.account_core.name }}</td>
+                        </tr>
+                        <tr>
+                            <th class="header">フリガナ</th>
+                            <td class="data">{{ staff_data.furigana }}</td>
+                        </tr>
+                        <tr>
+                            <th class="header">役職</th>
+                            <td class="data">{{ staff_data.position }}</td>
+                        </tr>
+                        <tr>
+                            <th class="header">画像</th>
+                            <td class="data">
+                                <img src="{{ staff_data.image.url }}" alt="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="header">自己紹介</th>
+                            <td class="data">{{ staff_data.description }}</td>
+                        </tr>
+                        <tr>
+                            <th class="header">住所</th>
+                            <td class="data">{{ staff_data.address }}</td>
+                        </tr>
+                        <tr>
+                            <th class="header">電話番号</th>
+                            <td class="data">{{ staff_data.tel }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
             <div class="button mx-auto">
                 <a class="btn btn-lg btn-warning btn-block" href="{% url 'profile_edit' %}">編集する</a>
             </div>

@@ -8,4 +8,6 @@ urlpatterns = [
     path('booking/<int:pk>/<int:year>/<int:month>/<int:day>/<int:hour>/', views.BookingView.as_view(), name='booking'),
     path('thanks/', views.ThanksView.as_view(), name='thanks'),
     path('stylist_page/<int:year>/<int:month>/<int:day>/', views.StylistPageView.as_view(), name='stylist_page'),
+    path('mypage/holiday/<int:year>/<int:month>/<int:day>/<int:hour>/', views.Holiday, name='holiday'),
+    path('mypage/delete/<int:year>/<int:month>/<int:day>/<int:hour>/', views.Delete, name='delete'),
 ]

@@ -45,3 +45,10 @@ class ProfileUserForm(forms.Form):
     furigana = forms.CharField(max_length=30, label='フリガナ')
     address = forms.CharField(max_length=100, label='住所')
     tel = forms.CharField(max_length=100, label='電話番号')
+
+class ProfileStaffForm(forms.Form):
+    name = forms.CharField(max_length=30, label='名前')
+    furigana = forms.CharField(max_length=30, label='フリガナ')
+    description = forms.CharField(label='自己紹介', widget=forms.Textarea(), required=False)
+    address = forms.CharField(max_length=100, label='住所')
+    tel = forms.CharField(max_length=100, label='電話番号')

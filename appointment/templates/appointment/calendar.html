@@ -11,15 +11,15 @@
                     <!-- スタイリスト詳細 -->
                     <div class="col-12">
                         <div class="card">
-                            {% if stylist_data.stylist_staff.image %}
-                            <img src="{{ stylist_data.stylist_staff.image.url }}" alt="" class="card-img-top">
+                            {% if staff_data.image %}
+                            <img src="{{ staff_data.image.url }}" alt="" class="card-img-top">
                             {% endif %}
                             <div class="card-body">
                                 <div class="">
-                                    <h3 class="card-title">{{ stylist_data.stylist_staff.name }}</h3>
+                                    <h3 class="card-title">{{ staff_data.name }}</h3>
                                     <hr>
-                                    <p>{{ stylist_data.stylist_staff.position }}</p>
-                                    <p>{{ stylist_data.stylist_staff.description|linebreaksbr }}</p>
+                                    <p>{{ staff_data.position }}</p>
+                                    <p>{{ staff_data.description|linebreaksbr }}</p>
                                 </div>
                             </div>
                         </div>
@@ -34,10 +34,10 @@
                         <!-- 週の切り替え -->
                         <div class="d-flex mb-2">
                             <div class="mx-3 mr-auto">
-                                <a class="btn btn-warning" href="{% url 'calendar' stylist_data.pk before.year before.month before.day %}">前週</a>
+                                <a class="btn btn-warning" href="{% url 'calendar' staff_data.pk before.year before.month before.day %}">前週</a>
                             </div>
                             <div class="mx-3">
-                                <a class="btn btn-warning" href="{% url 'calendar' stylist_data.pk next.year next.month next.day %}">次週</a>
+                                <a class="btn btn-warning" href="{% url 'calendar' staff_data.pk next.year next.month next.day %}">次週</a>
                             </div>
                         </div>
                         <!-- カレンダー -->
@@ -68,7 +68,7 @@
                                                     {% if datetime <= today %}
                                                         -
                                                     {% elif book %}
-                                                        <a href="{% url 'booking' stylist_data.pk datetime.year datetime.month datetime.day hour %}">
+                                                        <a href="{% url 'booking' staff_data.pk datetime.year datetime.month datetime.day hour %}">
                                                             <i class="far fa-circle text-info"></i>
                                                         </a>
                                                     {% else %}

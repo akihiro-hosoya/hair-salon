@@ -1,20 +1,29 @@
 from django.views.generic import View, TemplateView
 from django.shortcuts import render
-from .models import User, Staff, News, StyleCategory, Style, MenuCategory, Menu
+from .models import User, Staff, News, StyleCategory, Style, MenuCategory, Menu, Salon
+from appointment.models import Stylist, Booking
+from django.utils.timezone import localtime, make_aware
+from datetime import datetime, date, timedelta, time
+from django.db.models import Q
 
 
 class IndexView(View):
     def get(self, request, *args, **kwargs):
         news_data = News.objects.order_by('-id')[0:3]
-        stylist_data = Staff.objects.order_by('id')
+        staff_data = Staff.objects.order_by('id')
 
         return render(request, 'app/index.html', {
             'news_data': news_data,
-            'stylist_data': stylist_data,
+            'staff_data': staff_data,
         })
 
-class AboutView(TemplateView):
-    template_name = 'app/about.html'
+class AboutView(View):
+    def get(self, request, *args, **kwargs):
+        salon_data = Salon.objects.filter()[0]
+
+        return render(request, 'app/about.html', {
+            'salon_data': salon_data,
+        })
 
 class NewsListView(View):
     def get(self, request, *args, **kwargs):
@@ -34,18 +43,59 @@ class NewsDetailView(View):
 
 class StylistListView(View):
     def get(self, request, *args, **kwargs):
-        stylist_data = Staff.objects.order_by('id')
+        staff_data = Staff.objects.order_by('id')
 
         return render(request, 'app/stylist_list.html', {
-            'stylist_data': stylist_data,
+            'staff_data': staff_data,
         })
 
 class StylistDetailView(View):
     def get(self, request, *args, **kwargs):
-        stylist_data = Staff.objects.get(id=self.kwargs['pk'])        
+        staff_data = Staff.objects.get(id=self.kwargs['pk'])
 
+        today = date.today()
+        year = self.kwargs.get('year')
+        month = self.kwargs.get('month')
+        day = self.kwargs.get('day')
+        if year and month and day:
+            # 週始め
+            start_date = date(year=year, month=month, day=day)
+        else:
+            start_date = today
+        # 1週間
+        days = [start_date]
+        days = [start_date + timedelta(days=day) for day in range(7)]
+        start_day = days[0]
+        end_day = days[-1]
+
+        calendar = {}
+        # 10時～20時
+        for hour in range(10, 21):
+            row = {}
+            for day in days:
+                row[day] = True
+            calendar[hour] = row
+        start_time = make_aware(datetime.combine(start_day, time(hour=10, minute=0, second=0)))
+        end_time = make_aware(datetime.combine(end_day, time(hour=20, minute=0, second=0)))
+        # 開始時間＜終了時間・終了時間＞開始時間
+        booking_data = Booking.objects.filter(staff=staff_data).exclude(Q(start__gt=end_time) | Q(end__lt=start_time))
+        for booking in booking_data:
+            # 現地のタイムゾーンに変更
+            local_time = localtime(booking.start)
+            booking_date = local_time.date()
+            booking_hour = local_time.hour
+            if (booking_hour in calendar) and (booking_date in calendar[booking_hour]):
+                calendar[booking_hour][booking_date] = False
+        
         return render(request, 'app/stylist_detail.html', {
-            'stylist_data': stylist_data,
+            'staff_data': staff_data,
+            'calendar': calendar,
+            'days': days,
+            'start_day': start_day,
+            'end_day': end_day,
+            'before': days[0] - timedelta(days=7),
+            'next': days[-1] + timedelta(days=1),
+            'today': today,
         })
 
 class StyleListView(View):

@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import User, Staff, News, Style, StyleCategory, MenuCategory, Menu
+from .models import User, Staff, News, Style, StyleCategory, MenuCategory, Menu, Salon
 
 # Register your models here.
+admin.site.register(Salon)
 admin.site.register(User)
 admin.site.register(Staff)
 admin.site.register(News)

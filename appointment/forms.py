@@ -7,4 +7,4 @@ class BookingForm(forms.Form):
     furigana = forms.CharField(max_length=30, label='フリガナ')
     tel = forms.CharField(max_length=30, label='電話番号')
     address = forms.CharField(max_length=100, label='住所')
-    remarks = forms.CharField(label='備考', widget=forms.Textarea())
+    remarks = forms.CharField(label='備考', widget=forms.Textarea(), required=False)

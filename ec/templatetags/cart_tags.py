@@ -1,4 +1,5 @@
 from django import template
+from app.models import User
 from ec.models import Order
 
 register = template.Library()

@@ -15,9 +15,9 @@ class SignupUserForm(SignupForm):
         user_profile = User()
         user_profile.account_core = CustomUser.objects.filter(email=self.cleaned_data['email'])[0]
         user_profile.name = self.cleaned_data['name']
-        user_profile.name = self.cleaned_data['furigana']
+        user_profile.furigana = self.cleaned_data['furigana']
         user_profile.address = self.cleaned_data['address']
-        user_profile.address = self.cleaned_data['tel']
+        user_profile.tel= self.cleaned_data['tel']
         user_profile.save()
         return user
 

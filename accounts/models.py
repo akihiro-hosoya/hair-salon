@@ -35,7 +35,6 @@ ACCOUNT_TYPE_CHOICES = (
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField('メールアドレス', unique=True)
-    name = models.CharField('名前', max_length=50)
     account_type = models.IntegerField('アカウントの種類', choices=ACCOUNT_TYPE_CHOICES, default=1)
 
     is_staff = models.BooleanField(

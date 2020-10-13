@@ -5,6 +5,7 @@ from django.urls import reverse
 
 class User(models.Model):
     account_core = models.OneToOneField(CustomUser, verbose_name='アカウント', on_delete=models.CASCADE)
+    name = models.CharField('名前', max_length=50)
     furigana = models.CharField(('フリガナ'), max_length=50, null=True, blank=True)
     tel = models.CharField('電話番号', max_length=100, null=True, blank=True)
     address = models.CharField(('住所'), max_length=100, null=True, blank=True)
@@ -12,10 +13,11 @@ class User(models.Model):
     created = models.DateTimeField(('来店日'), default=timezone.now)
 
     def __str__(self):
-        return self.account_core.name
+        return f'{self.furigana}___{self.account_core.email}'
 
 class Staff(models.Model):
     account_core = models.OneToOneField(CustomUser, verbose_name='アカウント', on_delete=models.CASCADE)
+    name = models.CharField('名前', max_length=50)
     furigana = models.CharField(('フリガナ'), max_length=50, null=True, blank=True)
     position = models.CharField(('役職'), max_length=30, blank=True)
     description = models.TextField('自己紹介', default="", blank=True)
@@ -25,7 +27,7 @@ class Staff(models.Model):
     created = models.DateTimeField(('勤務開始日'), default=timezone.now)
 
     def __str__(self):
-        return self.furigana
+        return f'{self.furigana}___{self.account_core.email}'
 
 # サロン
 class Salon(models.Model):

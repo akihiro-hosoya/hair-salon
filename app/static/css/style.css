@@ -30,6 +30,15 @@ ol, ul {
     list-style: none;
 }
 
+img {
+    object-fit: cover;
+}
+
+.map {
+    width: auto;
+    height: auto;
+}
+
 /* ナビゲーション */
 .navbar {
     border-bottom: 1px solid #000;
@@ -79,7 +88,10 @@ ol, ul {
     object-fit: cover;
 }
 
-
+/* スタイル詳細 */
+.round-img {
+    border-radius: 3rem;
+}
 
 
 
@@ -156,9 +168,6 @@ ol, ul {
 
 .form-label-group {
     margin-bottom: 1rem;
-}
-
-.form-label-group input {
 }
 
 /* 決済 */

@@ -1,38 +1,40 @@
 {% extends "app/base.html" %}
 {% block content %}
-        <div class="main-wrap">
-            <div class="container">
-                <div class="row">
-                    <!-- タイトル -->
-                    <div class="col-12">
-                        <h2>RESERVE</h2>
-                    </div>
+<div class="main-wrap">
+    <div class="container">
+        <div class="row">
+            <!-- タイトル -->
+            <div class="col-12 my-4 text-center">
+                <h2>APPOINTMENT</h2>
+            </div>
 
-                    <!-- スタイリスト選択画面 -->
-                    <div class="col-12">
-                        <div>
-                            <h4>スタイリスト選択画面</h4>
-                        </div>
-                        <div>
-                            {% for staff in staff_data %}
-                            <div class="card">
-                                {% if staff.image %}
-                                <img src="{{ staff.image.url }}" alt="" class="card-img-top">
-                                {% endif %}
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ staff.name }}</h5>
-                                    <h6 class="card-subtitle">{{ staff.furigana }}</h6>
-                                    <h6 class="card-subtitle">{{ staff.position }}</h6>
-                                    <p class="card-text">
-                                        {{ staff.description }}
-                                    </p>
-                                    <a href="{% url 'calendar' staff.pk %}" class="btn btn-secondary">予約</a>
-                                </div>
+            <!-- スタイリスト選択画面 -->
+            <div class="col-12">
+                <div>
+                    <h4>スタイリスト選択画面</h4>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        {% for staff in staff_data %}
+                        <div class="card">
+                            {% if staff.image %}
+                            <img src="{{ staff.image.url }}" alt="" class=" ">
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ staff.name }}</h5>
+                                <h6 class="card-subtitle">{{ staff.furigana }}</h6>
+                                <h6 class="card-subtitle">{{ staff.position }}</h6>
+                                <p class="card-text">
+                                    {{ staff.description }}
+                                </p>
+                                <a href="{% url 'calendar' staff.pk %}" class="btn btn-secondary">予約</a>
                             </div>
-                            {% endfor %}
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
 {% endblock %}

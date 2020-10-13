@@ -7,7 +7,7 @@
         <div class="row">
             <!-- スタイル詳細 -->
             <!-- タイトル -->
-            <div class="col-12 my-4">
+            <div class="col-12 my-4 px-0">
                 <h2 class="text-center">STYLE</h2>
             </div>
 
@@ -23,13 +23,16 @@
                         </div>
                     </div>
                     <div class="col-8">
-                        <div class="border p-3">
-                            <img src="{{ style_data.stylist.image.url }}" alt="">
-                            <p>Stylist：{{ style_data.stylist.name }}<br>
-                                Style：{{ style_data.category }}</p>
-                            <hr>
+                        <div class="row border p-3">
+                            <div class="col-4">
+                                <img class="img-fluid round-img" src="{{ style_data.stylist.image.url }}" alt="">
+                            </div>
+                            <div class="col-8">
+                                <p>Stylist：{{ style_data.stylist.name }}<br>
+                                    Style：{{ style_data.category }}</p>
+                            </div>
+                            <hr class="my-3">
                             <p>{{ style_data.name }}</p>
-                            <hr>
                             <p>{{ style_data.detail|linebreaksbr|truncatechars:100 }}</p>
                         </div>
                     </div>

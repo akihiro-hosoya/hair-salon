@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from app.models import User, Staff
+from app.models import User, Staff, MenuCategory, Menu
 from .models import Stylist, Booking
 from django.views.generic import View, TemplateView
 from datetime import datetime, date, timedelta, time
@@ -11,6 +11,16 @@ import accounts.models
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.decorators.http import require_POST
 
+
+class MenuListView(View):
+    def get(self, request, *args, **kwargs):
+        menu_category = MenuCategory.objects.order_by('id')
+        menu_data = Menu.objects.order_by('id')
+
+        return render(request, 'appointment/menu_list.html', {
+            'menu_category': menu_category,
+            'menu_data': menu_data,
+        })
 
 class StylistChoiceView(View):
     def get(self, request, *args, **kwargs):

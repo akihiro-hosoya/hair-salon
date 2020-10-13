@@ -1,0 +1,54 @@
+{% extends "app/base.html" %}
+{% block content %}
+
+
+<div class="main-wrap">
+    <div class="container">
+        <div class="row">
+            <!-- Menu選択 -->
+            <!-- タイトル -->
+            <div class="col-12 my-5">
+                <h2 class="text-center">MENU選択</h2>
+            </div>
+
+            <!-- 一覧 -->
+            <div class="col-12">
+                <div class="row">
+                    <div class="">
+                        {% for category in menu_category %}
+                            <h4>{{ category.name }}</h4>
+                            <hr>
+                            {% for menu in menu_data %}
+                                {% if menu.category == category %}
+                                <form name="form1" action="">
+                                    <input type="checkbox" name="cut1">{{ menu.title }}：{{ menu.price }}円
+                                </form>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                        <input type="button" value="ボタン" onclick="clickBtn()"/>
+                        <p>選択したメニュー <span id="span1"></span></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    function clickBtn(){
+        const menus = [];
+        const cut1 = document.form1.cut1;
+
+        for (let i = 0; i < cut1.length; i++){
+            if(cut1[i].checked){
+                menus.push(cut1[i].value)
+            }
+        }
+        document.getElementById("span1").textContext = menus;
+    }
+</script>
+{% endblock %}

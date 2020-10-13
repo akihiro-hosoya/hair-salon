@@ -3,10 +3,16 @@ from accounts.models import CustomUser
 from django.utils import timezone
 from django.urls import reverse
 
+GENDER_CHOICES = (
+    (1, '指定なし'),
+    (2, '男性'),
+    (3, '女性'),
+)
 class User(models.Model):
     account_core = models.OneToOneField(CustomUser, verbose_name='アカウント', on_delete=models.CASCADE)
     name = models.CharField('名前', max_length=50)
     furigana = models.CharField(('フリガナ'), max_length=50, null=True, blank=True)
+    gender = models.CharField(max_length=2, default=1,choices=GENDER_CHOICES)
     tel = models.CharField('電話番号', max_length=100, null=True, blank=True)
     address = models.CharField(('住所'), max_length=100, null=True, blank=True)
     description = models.TextField('備考欄', default="", blank=True)
@@ -19,6 +25,7 @@ class Staff(models.Model):
     account_core = models.OneToOneField(CustomUser, verbose_name='アカウント', on_delete=models.CASCADE)
     name = models.CharField('名前', max_length=50)
     furigana = models.CharField(('フリガナ'), max_length=50, null=True, blank=True)
+    gender = models.CharField(max_length=2, default=1,choices=GENDER_CHOICES)
     position = models.CharField(('役職'), max_length=30, blank=True)
     description = models.TextField('自己紹介', default="", blank=True)
     image = models.ImageField(upload_to='images', verbose_name='プロフィール画像', null=True, blank=True)

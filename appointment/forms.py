@@ -2,6 +2,11 @@ from django import forms
 from .models import CustomUser
 from app.models import User, Staff
 
+# class MenuChoiceForm(forms.Form):
+    # カット
+    # カラー
+
+
 class BookingForm(forms.Form):
     name = forms.CharField(max_length=30, label='名前')
     furigana = forms.CharField(max_length=30, label='フリガナ')

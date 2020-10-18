@@ -24,11 +24,11 @@
                 <h5 class="text-center">ABOUT</h5>
                 <div class="row top-concept">
                     <!-- 写真 -->
-                    <div class="col-12 col-md-6 pr-0">
+                    <div class="col-12 col-md-6 pr-0 mx-0">
                         <img class="img-fluid" src="/media/images/blake-wisz-GFrBMipOd_E-unsplash.jpg" alt="">
                     </div>
                     <!-- コンセプト紹介 -->
-                    <div class="col-12 col-md-6 border">
+                    <div class="col-12 col-md-6 border pl-0">
                         <div class="top-about my-5">
                             <div class="text-center">
                                 <p>あなたにあったヘアスタイルをご提案します。</p>
@@ -42,7 +42,7 @@
             </div>
 
             <!-- News -->
-            <div class="col-12 mb-5">
+            <div class="col-12 mb-5 px-0">
                 <h5 class="text-center">NEWS</h5>
                 <div class="border border-secondary p-3">
                     {% for news in news_data %}
@@ -60,7 +60,7 @@
             </div>
 
             <!-- スタイリスト -->
-            <div class="col-12 mb-5">
+            <div class="col-12 mb-5 px-0">
                 <h5 class="text-center">STYLISTS</h5>
                 <div class="border border-secondary p-3">
                     <div class="row">
@@ -91,7 +91,7 @@
             </div>
 
             <!-- Shop -->
-            <div class="col-12 my-5">
+            <div class="col-12 my-5 px-0">
                 <h5 class="text-center">SHOP</h5>
                 <div class="row top-concept">
                     <!-- 写真 -->
@@ -103,7 +103,7 @@
                         <div class="top-about my-5">
                             <div class="text-center">
                                 <p>当サロンで好評販売中の商品を数多く取り揃えております。</p>
-                                <a href="#" class="btn btn-outline-dark">
+                                <a href="{% url 'item_list' %}" class="btn btn-outline-dark">
                                     <span>To Our Shop</span>
                                 </a>
                             </div>

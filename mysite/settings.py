@@ -19,15 +19,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '5&*hr&9wjcta##dn$83h_rpm^d6r()^wu_vvt75$_ov2d@ol65'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -141,7 +132,37 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 # 画像
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Stripe
 STRIPE_SECRET_KEY = 'sk_test_51HbJXRA2iF7L75ITTqxYqvhZfpTpb6ewZbRz50QKWldxpdHIOh9bdSeoPmQOU2tEYtXZyGRR3uc13PCdz9gOKNEO00Ls75qgVD'
+
+# デプロイ設定
+DEBUG = False
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+
+# ローカル環境設定
+if DEBUG:
+    ALLOWED_HOSTS = ['*']
+    # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+else:
+    import environ
+    env = environ.Env()
+    env.read_env(os.path.join(BASE_DIR, '.env'))
+
+    SECRET_KEY = env('SECRET_KEY')
+    ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
+
+    # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    # EMAIL_HOST = 'smtp.gmail.com'
+    # EMAIL_PORT = 587
+    # EMAIL_HOST_USER = 'xxx@gmail.com'
+    # EMAIL_HOST_PASSWORD = 'xxx'
+    # EMAIL_USE_TLS = True
+
+    STATIC_ROOT = '/usr/share/nginx/html/static'
+    MEDIA_ROOT = '/user/share/nginx/html/media'

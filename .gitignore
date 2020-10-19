@@ -5,3 +5,6 @@ __pycache__
 *.pyc
 *.pyo
 .DS_Store
+media
+local_settings.py
+.env

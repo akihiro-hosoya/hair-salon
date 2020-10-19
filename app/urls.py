@@ -16,4 +16,7 @@ urlpatterns = [
     path('style/<int:pk>/', views.StyleDetailView.as_view(), name='style_detail'),
     # Menu
     path('menu/', views.MenuView.as_view(), name='menu'),
+    # Contact
+    path('contact/', views.ContactView.as_view(), name='contact'),
+    path('contact/thanks/', views.ContactThanksView.as_view(), name='contact_thanks'),
 ]

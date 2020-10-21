@@ -32,7 +32,7 @@
                         <div class="top-about my-5">
                             <div class="text-center">
                                 <p>あなたにあったヘアスタイルをご提案します。</p>
-                                <a href="#" class="btn btn-outline-dark">
+                                <a href="{% url 'about' %}" class="btn btn-outline-dark">
                                     <span>more</span>
                                 </a>
                             </div>
@@ -48,7 +48,7 @@
                     {% for news in news_data %}
                     <ul>
                         <li>
-                            <a href="#">
+                            <a href="{% url 'news_detail' news.id %}">
                                 <p>{{ news.created_date|date:"Y/m/d f" }}：{{ news.title }}</p>
                             </a>
                         </li>

@@ -38,6 +38,10 @@ class Staff(models.Model):
 
 # サロン
 class Salon(models.Model):
+    name = models.CharField('サロン名', max_length=30, null=True, blank=True)
+    sub = models.CharField('サブタイトル', max_length=50, null=True, blank=True)
+    concept1 = models.TextField('コンセプト１', default="", blank=True)
+    concept2 = models.TextField('コンセプト2', default="", blank=True)
     mail = models.CharField('メールアドレス', max_length=200, null=True, blank=True)
     tel = models.CharField('電話番号', max_length=200, null=True, blank=True)
     opening = models.CharField('開店時間', max_length=30, null=True, blank=True)
@@ -45,9 +49,11 @@ class Salon(models.Model):
     regular_holiday = models.CharField(('定休日'), max_length=100, null=True, blank=True)
     address = models.CharField(('住所'), max_length=100, null=True, blank=True)
     access = models.TextField('アクセス', default="", blank=True)
+    twitter = models.CharField('twitter', max_length=100, null=True, blank=True)
+    instagram = models.CharField('instagram', max_length=100, null=True, blank=True)
 
     def __str__(self):
-        return self.mail
+        return self.name
 
 # News
 class News(models.Model):

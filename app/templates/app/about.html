@@ -18,12 +18,8 @@
                 <div class="row">
                     <!-- ロゴ -->
                     <div class="col-3">
-                        <h3>Design</h3>
-                        <p>新宿で最先端を走るサロン</p>
-                    </div>
-                    <!-- 説明 -->
-                    <div class="col-9">
-                        <p class="text-right">サロンについての説明</p>
+                        <h3>{{ salon_data.name }}</h3>
+                        <p>{{ salon_data.sub }}</p>
                     </div>
                 </div>
 
@@ -37,7 +33,7 @@
                     <div class="col-12 col-md-6 border p-0">
                         <div class="top-about my-5">
                             <div class="text-center">
-                                <p>コンセプト1</p>
+                                <p>{{ salon_data.concept1 }}</p>
                             </div>
                         </div>
                     </div>
@@ -48,7 +44,7 @@
                     <div class="col-12 col-md-6 border">
                         <div class="top-about my-5">
                             <div class="text-center">
-                                <p>コンセプト2</p>
+                                <p>{{ salon_data.concept2 }}</p>
                             </div>
                         </div>
                     </div>

@@ -19,7 +19,7 @@ class User(models.Model):
     created = models.DateTimeField(('来店日'), default=timezone.now)
 
     def __str__(self):
-        return f'{self.furigana}___{self.account_core.email}'
+        return f'{self.furigana} ＋ {self.account_core.email}'
 
 class Staff(models.Model):
     account_core = models.OneToOneField(CustomUser, verbose_name='アカウント', on_delete=models.CASCADE)
@@ -34,7 +34,7 @@ class Staff(models.Model):
     created = models.DateTimeField(('勤務開始日'), default=timezone.now)
 
     def __str__(self):
-        return f'{self.furigana}___{self.account_core.email}'
+        return f'{self.furigana} ＋ {self.account_core.email}'
 
 # サロン
 class Salon(models.Model):

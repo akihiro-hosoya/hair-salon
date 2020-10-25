@@ -26,7 +26,7 @@ class Staff(models.Model):
     gender = models.ForeignKey(Gender, verbose_name='性別', on_delete=models.CASCADE, null=True, blank=True)
     position = models.CharField(('役職'), max_length=30, blank=True)
     description = models.TextField('自己紹介', default="", blank=True)
-    image = models.ImageField(upload_to='media/', verbose_name='プロフィール画像', null=True, blank=True)
+    image = models.ImageField(upload_to='', verbose_name='プロフィール画像', null=True, blank=True)
     tel = models.CharField('電話番号', max_length=100, null=True, blank=True)
     address = models.CharField(('住所'), max_length=100, null=True, blank=True)
     created = models.DateTimeField(('勤務開始日'), default=timezone.now)
@@ -58,7 +58,7 @@ class News(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
-    image = models.ImageField(upload_to='media/', verbose_name='画像', null=True, blank=True)
+    image = models.ImageField(upload_to='', verbose_name='画像', null=True, blank=True)
 
     def get_absolute_url(self):
         return reverse('news_detail', kwargs={'pk':self.pk})
@@ -79,7 +79,7 @@ class Style(models.Model):
     name = models.CharField(max_length=50)
     detail = models.TextField()
     stylist = models.ForeignKey(Staff, verbose_name='スタイリスト', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='media/', verbose_name='画像', null=True, blank=True)
+    image = models.ImageField(upload_to='', verbose_name='画像', null=True, blank=True)
 
     def __str__(self):
         return self.name

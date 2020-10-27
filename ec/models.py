@@ -8,7 +8,7 @@ class Item(models.Model):
     price = models.IntegerField()
     slug = models.SlugField()
     description = models.TextField()
-    image = models.ImageField(upload_to='ec')
+    image = models.ImageField(upload_to='')
 
     def __str__(self):
         return self.title

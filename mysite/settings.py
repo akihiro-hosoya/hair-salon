@@ -164,5 +164,5 @@ else:
     # EMAIL_HOST_PASSWORD = 'xxx'
     # EMAIL_USE_TLS = True
 
-    STATIC_ROOT = '/usr/share/nginx/html/static'
+    STATIC_ROOT = '/user/share/nginx/html/static'
     MEDIA_ROOT = '/user/share/nginx/html/media'

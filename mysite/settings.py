@@ -131,7 +131,7 @@ ACCOUNT_LOGOUT_REDIRECT_URL = '/'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 # 画像
-MEDIA_URL = '/app/static/img/'
+MEDIA_URL = '/media/'
 
 # Stripe
 STRIPE_SECRET_KEY = 'sk_test_51HbJXRA2iF7L75ITTqxYqvhZfpTpb6ewZbRz50QKWldxpdHIOh9bdSeoPmQOU2tEYtXZyGRR3uc13PCdz9gOKNEO00Ls75qgVD'
@@ -148,7 +148,7 @@ except ImportError:
 if DEBUG:
     ALLOWED_HOSTS = ['*']
     # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'app/static/img/')
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 else:
     import environ
     env = environ.Env()

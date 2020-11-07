@@ -5,24 +5,26 @@
 <div class="main-wrap">
     <div class="container">
         <div class="row">
-            <!-- NEWS詳細 -->
-            <!-- タイトル -->
-            <div class="col-12 my-4">
-                <h2 class="text-center">NEWS</h2>
-                <!-- 詳細 -->
-                <h3 class="text-center my-4">{{ news_data.title }}</h3>
-                <div class="text-right">
-                    <p>投稿日時：{{ news_data.created_date }}</p>
-                </div>
-                <hr>
-                {% if news_data.image %}
-                    <img src="{{ news_data.image.url }}" alt="">
-                {% endif %}
-                <div class="">
+            <div class="content-wrap">
+                <!-- NEWS詳細 -->
+                <!-- タイトル -->
+                <div class="col-12 my-4">
+                    <!-- 詳細 -->
+                    <h3 class="text-center my-4">{{ news_data.title }}</h3>
+                    <div class="text-right">
+                        <p>投稿日時：{{ news_data.created_date }}</p>
+                    </div>
+                    <hr>
+                    {% if news_data.image %}
+                    <img class="m-0" src="{{ news_data.image.url }}" alt="">
+                    {% endif %}
                     <div class="">
-                        <p class="">{{ news_data.content|linebreaksbr }}</p>
+                        <div class="my-3">
+                            <p>{{ news_data.content|linebreaksbr }}</p>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

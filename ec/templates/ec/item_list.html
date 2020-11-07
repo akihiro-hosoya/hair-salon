@@ -11,24 +11,27 @@
                 <h2 class="text-center">SHOP</h2>
             </div>
 
-            <!-- 一覧 -->
-            <div class="col-12">
-                <div class="row">
-                    {% for item in object_list %}
-                    <div class="col-4">
-                        <div class="card">
-                            <img  class="  img-fluid" src="{{ item.image.url }}" alt="">
-                            <div class="card-body">
-                                <h5>{{ item.title }}</h5>
+            <div class="content-wrap">
+                <!-- 一覧 -->
+                <div class="col-12">
+                    <div class="row">
+                        {% for item in object_list %}
+                        <div class="col-4 px-0">
+                            <div class="card">
+                                <img class="img-fluid" src="{{ item.image.url }}" alt="">
+                                <div class="card-body">
+                                    <h5>{{ item.title }}</h5>
+                                </div>
+                                <a class="stretched-link" href="{% url 'item_detail' item.slug %}"></a>
                             </div>
-                            <a class="stretched-link" href="{% url 'item_detail' item.slug %}"></a>
                         </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                 </div>
-            </div>
 
+            </div>
         </div>
+
     </div>
 </div>
 {% endblock content %}

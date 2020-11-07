@@ -1,7 +1,4 @@
-{% extends 'app/base.html' %}
-{% load static %}
-
-{% block content %}
+{% extends 'app/base.html' %} {% load static %} {% block content %}
 <div class="main-wrap">
     <div class="container">
         <div class="row">
@@ -11,22 +8,22 @@
                 <h2 class="text-center">STYLISTS</h2>
             </div>
 
-            <div class="col-12">
-                <div class="row">
-                    {% for staff in staff_data %}
-                    <div class="col-3">
-                        <div class="card">
+            <div class="content-wrap">
+                <div class="col-12">
+                    <div class="row">
+                        {% for staff in staff_data %}
+                        <div class="card col-4 px-0">
                             {% if staff.image %}
-                                <img  class="  img-fluid" src="{{ staff.image.url }}" alt="">
+                            <img class="img-fluid" src="{{ staff.image.url }}" alt="" />
                             {% endif %}
-                            <div class="card-body">
+                            <div class="card-body p-3">
                                 <p>{{ staff.position }}</p>
                                 <h5>{{ staff.name }}</h5>
                             </div>
                             <a class="stretched-link" href="{% url 'stylist_detail' staff.pk  %}"></a>
                         </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                 </div>
             </div>
         </div>

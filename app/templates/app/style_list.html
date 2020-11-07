@@ -11,34 +11,34 @@
                 <h2 class="text-center">STYLES</h2>
             </div>
 
-            <!-- カテゴリ -->
-            <div class="col-12 my-2">
-                <div class="d-flex justify-content-evenly">
-                    {% for category in style_category %}
+            <div class="content-wrap">
+                <!-- カテゴリ -->
+                <div class="col-12 my-2">
+                    <div class="d-flex justify-content-evenly">
+                        {% for category in style_category %}
                         <div>
                             <a href="">
                                 <p>{{ category.name }}</p>
                             </a>
                         </div>
-                    {% endfor %}
-                </div>
-            </div>
-
-            <!-- 一覧 -->
-            <div class="col-12">
-                <div class="row">
-                    {% for style in style_data %}
-                    <div class="col-4">
-                        <div class="card">
-                            <img class="  img-fluid" src="{{ style.image.url }}" alt="">
-                            <div class="card-body">
-                                <p>{{ style.category }}</p>
-                            </div>
-                            <a class="stretched-link" href="{% url 'style_detail' style.id %}"></a>
-                        </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                 </div>
+
+                <!-- 一覧 -->
+                <div class="col-12">
+                    <div class="row">
+                        {% for style in style_data %}
+                        <div class="col-4">
+                            <div class="card">
+                                <img class="img-fluid" src="{{ style.image.url }}" alt="">
+                                <a class="stretched-link" href="{% url 'style_detail' style.id %}"></a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

@@ -61,10 +61,7 @@ ol, ul {
 img {
     object-fit: cover;
 }
-.map {
-    width: auto;
-    height: auto;
-}
+
 .center {
     display: flex;
     justify-content: center;

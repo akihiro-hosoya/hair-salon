@@ -6,6 +6,9 @@ from django.urls import reverse
 class Gender(models.Model):
     name = models.CharField('性別', max_length=5)
 
+    def __str__(self):
+        return self.name
+
 class User(models.Model):
     account_core = models.OneToOneField(CustomUser, verbose_name='アカウント', on_delete=models.CASCADE)
     name = models.CharField('名前', max_length=50)

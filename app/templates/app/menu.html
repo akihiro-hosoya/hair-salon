@@ -10,22 +10,25 @@
                 <h2 class="text-center">MENU</h2>
             </div>
 
-            <!-- 一覧 -->
-            <div class="col-12">
-                <div class="row">
-                    <div class="">
+            <div class="content-wrap">
+                <!-- 一覧 -->
+                <div class="col-12">
+                    <div class="row">
                         {% for category in menu_category %}
-                            <h4>{{ category.name }}</h4>
+                        <div class="mb-3">
+                            <h4 class="">{{ category.name }}</h4>
                             <hr>
                             {% for menu in menu_data %}
-                                {% if menu.category == category %}
-                                <p>{{ menu.title }}：{{ menu.price }}円</p>
-                                <p>{{ menu.description }}</p>
-                                {% endif %}
+                            {% if menu.category == category %}
+                            <p class="m-0 p-0">{{ menu.title }}：{{ menu.price }}円</p>
+                            <p>{{ menu.description }}</p>
+                            {% endif %}
                             {% endfor %}
+                        </div>
                         {% endfor %}
                     </div>
                 </div>
+
             </div>
 
         </div>

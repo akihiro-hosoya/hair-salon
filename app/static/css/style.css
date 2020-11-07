@@ -3,7 +3,19 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+.border {
+    padding: 0;
+    margin: 0;
+}
+.container {
+    padding-left: 4px;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+}
+.row {
+    margin: 0;
+}
 body {
     background: #fff;
     min-height: 100vh;
@@ -17,7 +29,7 @@ body {
 
 .side-bar {
     position: sticky;
-    top: 20px;
+    top: 10px;
 }
 
 main {
@@ -27,6 +39,10 @@ main {
 
 .content {
     min-height: 100vh;
+}
+.content-wrap {
+    width: 90%;
+    margin: 0 auto;
 }
 
 a {
@@ -39,15 +55,20 @@ a:hover {
 }
 ol, ul {
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
-
 img {
     object-fit: cover;
 }
-
 .map {
     width: auto;
     height: auto;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* ナビゲーション */
@@ -99,6 +120,7 @@ img {
     display: flex;
     justify-content: center;
 }
+
 /* スタイリスト一覧 */
 .top-stylist-img {
     width: 100%;

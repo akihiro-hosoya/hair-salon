@@ -21,93 +21,124 @@
                 </div>
             </div>
 
-            <!-- About -->
-            <div class="col-12 my-5 px-0">
-                <h5 class="text-center">ABOUT</h5>
-                <div class="row top-concept">
-                    <!-- 写真 -->
-                    <div class="col-12 col-md-6 pr-0 mx-0">
-                        <img class="img-fluid" src="{% static 'img/top_img.jpg' %}" alt="">
-                    </div>
-                    <!-- コンセプト紹介 -->
-                    <div class="col-12 col-md-6 border pl-0">
-                        <div class="top-about my-5">
-                            <div class="text-center">
-                                <p>あなたにあったヘアスタイルをご提案します。</p>
-                                <a href="{% url 'about' %}" class="btn btn-outline-dark">
-                                    <span>more</span>
-                                </a>
-                            </div>
+            <div class="content-wrap">
+                <!-- About -->
+                <div class="col-12 my-5 px-0">
+                    <h5 class="text-center">ABOUT</h5>
+                    <div class="row top-concept">
+                        <!-- 写真 -->
+                        <div class="col-12 col-md-6 pr-0 mx-0">
+                            <img class="img-fluid" src="{% static 'img/top_img.jpg' %}" alt="">
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- News -->
-            <div class="col-12 mb-5 px-0">
-                <h5 class="text-center">NEWS</h5>
-                <div class="border border-secondary p-3">
-                    {% for news in news_data %}
-                    <ul>
-                        <li>
-                            <a href="{% url 'news_detail' news.id %}">
-                                <p>{{ news.created_date|date:"Y/m/d f" }}：{{ news.title }}</p>
-                            </a>
-                        </li>
-                    </ul>
-                    {% empty %}
-                    <p>投稿がありません</p>
-                    {% endfor %}
-                </div>
-            </div>
-
-            <!-- スタイリスト -->
-            <div class="col-12 mb-5 px-0">
-                <h5 class="text-center">STYLISTS</h5>
-                <div class="border border-secondary p-3">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="row">
-                                {% for stylist in staff_data|slice:":2" %}
-                                <div class="col-3">
-                                    <div class="card">
-                                        {% if stylist.image %}
-                                            <img src="{{ stylist.image.url }}" alt="" class="  top-stylist-img">
-                                        {% endif %}
-                                        <div class="card-body">
-                                            <p class="card-text text-center">{{ stylist.name }}</p>
-                                        </div>
-                                        <a href="{% url 'stylist_detail' stylist.pk  %}" class="stretched-link"></a>
-                                    </div>
+                        <!-- コンセプト紹介 -->
+                        <div class="col-12 col-md-6 border pl-0">
+                            <div class="top-about my-5">
+                                <div class="text-center">
+                                    <p>あなたにあったヘアスタイルをご提案します。</p>
+                                    <a href="{% url 'about' %}" class="btn btn-outline-dark">
+                                        <span>more</span>
+                                    </a>
                                 </div>
-                                {% endfor %}
                             </div>
-                        </div>
-                        <div class="col-12 my-2 text-right">
-                            <button class="btn btn-outline-secondary">
-                                <a href="">スタイリスト一覧を見る</a>
-                            </button>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Shop -->
-            <div class="col-12 my-5 px-0">
-                <h5 class="text-center">SHOP</h5>
-                <div class="row top-concept">
-                    <!-- 写真 -->
-                    <div class="col-12 col-md-6 pr-0">
-                        <img class="img-fluid" src="{% static 'img/shampoo.jpg' %}" alt="">
-                    </div>
-                    <!-- Shop紹介 -->
-                    <div class="col-12 col-md-6 border">
-                        <div class="top-about my-5">
-                            <div class="text-center">
-                                <p>当サロンで好評販売中の商品を数多く取り揃えております。</p>
-                                <a href="{% url 'item_list' %}" class="btn btn-outline-dark">
-                                    <span>To Our Shop</span>
+                <!-- News -->
+                <div class="col-12 mb-5 px-0">
+                    <h5 class="text-center">NEWS</h5>
+                    <div class="border border-secondary p-3">
+                        {% for news in news_data %}
+                        <ul>
+                            <li>
+                                <a href="{% url 'news_detail' news.id %}">
+                                    <p>{{ news.created_date|date:"Y/m/d f" }}：{{ news.title }}</p>
                                 </a>
+                            </li>
+                        </ul>
+                        {% empty %}
+                        <p>投稿がありません</p>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- スタイリスト -->
+                <div class="col-12 mb-5 px-0">
+                    <div class="border border-secondary">
+                        <div class="row">
+                            <div class="col-12 px-0">
+                                <div class="row">
+                                    <div class="col-3 center px-0">
+                                        <div class="">
+                                            <h5 class="">STYLISTS</h5>
+                                        </div>
+                                    </div>
+                                    {% for stylist in staff_data|slice:":3" %}
+                                    <div class="col-3 px-0">
+                                        {% if stylist.image %}
+                                        <a href="{% url 'stylist_detail' stylist.pk  %}" class="stretched-link">
+                                            <img src="{{ stylist.image.url }}" alt="" class="top-stylist-img">
+                                        </a>
+                                        {% endif %}
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 text-right">
+                        <button class="btn btn-outline-secondary">
+                            <a href="">スタイリスト一覧を見る</a>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- スタイル -->
+                <div class="col-12 mb-5 px-0">
+                    <div class="border border-secondary">
+                        <div class="row">
+                            <div class="col-12 px-0">
+                                <div class="row">
+                                    <div class="col-2 center px-0">
+                                        <h5 class="text-center">STYLE</h5>
+                                    </div>
+                                    {% for style in style_data|slice:":5" %}
+                                    <div class="col-2 px-0">
+                                        {% if style.image %}
+                                        <a href="{% url 'style_detail' style.pk  %}" class="stretched-link">
+                                            <img src="{{ style.image.url }}" alt="" class="top-stylist-img">
+                                        </a>
+                                        {% endif %}
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 text-right">
+                        <button class="btn btn-outline-secondary">
+                            <a href="">スタイルカタログを見る</a>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Shop -->
+                <div class="col-12 my-5 px-0">
+                    <h5 class="text-center">SHOP</h5>
+                    <div class="row top-concept">
+                        <!-- 写真 -->
+                        <div class="col-12 col-md-6 px-0">
+                            <img class="img-fluid" src="{% static 'img/shampoo.jpg' %}" alt="">
+                        </div>
+                        <!-- Shop紹介 -->
+                        <div class="col-12 col-md-6 border px-0">
+                            <div class="top-about my-5">
+                                <div class="text-center">
+                                    <p>当サロンで好評販売中の商品を取り揃えております。</p>
+                                    <a href="{% url 'item_list' %}" class="btn btn-outline-dark">
+                                        <span>To Our Shop</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

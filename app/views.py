@@ -17,11 +17,13 @@ class IndexView(View):
         news_data = News.objects.order_by('-id')[0:3]
         staff_data = Staff.objects.order_by('id')
         salon_data = Salon.objects.all()
+        style_data = Style.objects.all()
 
         return render(request, 'app/index.html', {
             'news_data': news_data,
             'staff_data': staff_data,
             'salon_data': salon_data,
+            'style_data': style_data,
         })
 
 class AboutView(View):

@@ -6,16 +6,27 @@
 
 body {
     background: #fff;
-    display: flex;
-    flex-flow: column;
     min-height: 100vh;
-}
-main {
-    flex: 1;
+    display: flex;
 }
 
-footer {
-    margin-top: 3rem;
+.nav-bar {
+    width: 20%;
+    box-shadow: 4px 0px;
+}
+
+.side-bar {
+    position: sticky;
+    top: 20px;
+}
+
+main {
+    flex: 1;
+    width: 80%;
+}
+
+.content {
+    min-height: 100vh;
 }
 
 a {
@@ -40,25 +51,32 @@ img {
 }
 
 /* ナビゲーション */
-.navbar {
-    border-bottom: 1px solid #000;
+.side-logo {
+    text-align: center;
 }
 .nav-menu {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-direction: column;
+    margin: 20px;
+}
+.nav-item {
+    margin: 5px;
+    padding: 0;
+    text-align: center;
 }
 .nav-link {
     padding: 0;
 }
-.header-icon {
-    text-align: center;
-    margin-left: 2em;
+.side-icon {
     display: flex;
-    flex-direction: column;
+    justify-content: space-evenly;
 }
-.header-icon i {
+.side-icon i {
     font-size: 1.5rem;
+}
+.side-info {
+    margin: 10px 0px;
+    text-align: center;
 }
 
 /* 全体 */

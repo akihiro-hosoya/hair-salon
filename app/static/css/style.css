@@ -133,8 +133,6 @@ img {
     border-radius: 3rem;
 }
 
-
-
 .card-profile {
     width: 700px;
     border: 0;
@@ -168,6 +166,13 @@ img {
 
 .profile_table .data {
     padding: 16px 24px;
+}
+
+/* profile */
+.mypage_img {
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
 }
 
 /* profile_edit */

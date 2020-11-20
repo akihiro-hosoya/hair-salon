@@ -64,12 +64,12 @@
                         <tr>
                             <th class="header">画像</th>
                             <td class="data">
-                                <img src="{{ staff_data.image.url }}" alt="">
+                                <img class="mypage_img" src="{{ staff_data.image.url }}" alt="">
                             </td>
                         </tr>
                         <tr>
                             <th class="header">自己紹介</th>
-                            <td class="data">{{ staff_data.description }}</td>
+                            <td class="data">{{ staff_data.description|linebreaksbr }}</td>
                         </tr>
                         <tr>
                             <th class="header">住所</th>

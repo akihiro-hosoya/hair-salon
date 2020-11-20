@@ -21,7 +21,7 @@
                             {% for menu in menu_data %}
                             {% if menu.category == category %}
                             <p class="m-0 p-0">{{ menu.title }}：{{ menu.price }}円</p>
-                            <p>{{ menu.description }}</p>
+                            <p>{{ menu.description|linebreaksbr }}</p>
                             {% endif %}
                             {% endfor %}
                         </div>

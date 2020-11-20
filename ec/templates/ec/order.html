@@ -23,12 +23,12 @@
                                     <h5>{{ order_item.item.title }}</h5>
                                     <p class="mb-1">
                                         数量：
-                                        <a href="{% url 'removesingleitem' order_item.item.slug %}"><span class="btn btn-primary btn-sm">ー</span></a>
+                                        <a href="{% url 'removesingleitem' order_item.item.slug %}"><span class="btn btn-secondary btn-sm">ー</span></a>
                                         {{ order_item.quantity }}
-                                        <a href="{% url 'additem' order_item.item.slug %}"><span class="btn btn-primary btn-sm">＋</span></a>
+                                        <a href="{% url 'additem' order_item.item.slug %}"><span class="btn btn-secondary btn-sm">＋</span></a>
                                     </p>
                                     <a href="{% url 'removeitem' order_item.item.slug %}">
-                                        <span class="btn btn-danger">削除</span>
+                                        <span class="btn btn-danger btn-sm">削除</span>
                                     </a>
                                 </div>
                                 <div class="col-md-3 text-right">

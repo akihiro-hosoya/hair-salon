@@ -1,242 +1,744 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-p {
-    color: #0f000f;
-}
-.border {
-    padding: 0;
-    margin: 0;
-}
-.container {
-    padding-left: 4px;
-    padding-top: 0;
-    padding-bottom: 0;
-    padding-right: 0;
-}
-.row {
-    margin: 0;
-}
-body {
-    background: #fff;
-    min-height: 100vh;
-    display: flex;
-}
+@media screen and (min-width:480px){
+    /* for iPad */
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    p {
+        color: #0f000f;
+    }
+    .border {
+        padding: 0;
+        margin: 0;
+    }
+    .container {
+        padding-left: 4px;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-right: 0;
+    }
+    .row {
+        margin: 0;
+    }
+    body {
+        background: #fff;
+        min-height: 100vh;
+        display: flex;
+    }
 
-.nav-bar {
-    width: 20%;
-    box-shadow: 4px 0px;
-}
+    .nav-bar {
+        width: 20%;
+        box-shadow: 4px 0px;
+    }
 
-.side-bar {
-    position: sticky;
-    top: 10px;
-}
+    .side-bar {
+        top: 10px;
+    }
 
-main {
-    flex: 1;
-    width: 80%;
-}
+    main {
+        flex: 1;
+        width: 80%;
+    }
 
-.content {
-    min-height: 100vh;
-}
-.content-wrap {
-    width: 90%;
-    margin: 0 auto;
-}
+    .content {
+        min-height: 100vh;
+    }
+    .content-wrap {
+        width: 90%;
+        margin: 0 auto;
+    }
 
-a {
-    color: #000;
-    text-decoration: none;
-}
-a:hover {
-    color: #000;
-    opacity: 0.5;
-}
-ol, ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-img {
-    object-fit: cover;
-}
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+    a:hover {
+        color: #000;
+        opacity: 0.5;
+    }
+    ol, ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    img {
+        object-fit: cover;
+    }
 
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-/* ナビゲーション */
-.side-logo {
-    text-align: center;
-}
-.nav-menu {
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-}
-.nav-item {
-    margin: 5px;
-    padding: 0;
-    text-align: center;
-}
-.nav-link {
-    padding: 0;
-}
-.side-icon {
-    display: flex;
-    justify-content: space-evenly;
-}
-.side-icon i {
-    font-size: 1.5rem;
-}
-.side-info {
-    margin: 10px 0px;
-    text-align: center;
-}
+    /* ナビゲーション */
+    .side-logo {
+        text-align: center;
+    }
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+    }
+    .nav-item {
+        margin: 5px;
+        padding: 0;
+        text-align: center;
+    }
+    .nav-link {
+        padding: 0;
+    }
+    .side-icon {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .side-icon i {
+        font-size: 1.5rem;
+    }
+    .side-info {
+        margin: 10px 0px;
+        text-align: center;
+    }
 
-/* 全体 */
-.page-top-img {
-    display: inline-block;
-    height: 400px;
-    width: 100%;
-}
-
-
-/* index */
-/* カルーセル */
-.carousel-item img {
-    display: inline-block;
-    height: 400px;
-    width: 100%;
-}
-/* コンセプト */
-.top-about {
-    display: flex;
-    justify-content: center;
-}
-
-/* スタイリスト一覧 */
-.top-stylist-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-/* スタイル詳細 */
-.round-img {
-    border-radius: 3rem;
-}
-
-.card-profile {
-    width: 700px;
-    border: 0;
-}
-
-.button {
-    width: 150px;
-}
-
-.btn {
-    font-size: 80%;
-    font-weight: bold;
-}
-
-.profile_table {
-    width: 100%;
-    border: 1px solid #000;
-    border-collapse: separate;
-    overflow: hidden;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.profile_table .header {
-    width: 200px;
-    padding: 16px 24px;
-    text-align: left;
-    background: #000;
-    color: #fff;
-}
-
-.profile_table .data {
-    padding: 16px 24px;
-}
-
-/* profile */
-.mypage_img {
-    object-fit: cover;
-    width: 100px;
-    height: 100px;
-}
-
-/* profile_edit */
-.form_wrap {
-    display: grid;
-    gap: 16px;
-}
-
-.form_wrap-2 {
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.form-control:focus {
-    box-shadow: none;
-}
+    /* 全体 */
+    .page-top-img {
+        display: inline-block;
+        height: 400px;
+        width: 100%;
+    }
 
 
+    /* index */
+    /* カルーセル */
+    .carousel-item img {
+        display: inline-block;
+        height: 400px;
+        width: 100%;
+    }
+    /* コンセプト */
+    .top-about {
+        display: flex;
+        justify-content: center;
+    }
 
-/* ログイン画面 */
-.card-auth {
-    width: 400px;
-    border: 0;
-    box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.1);
+    /* スタイリスト一覧 */
+    .top-stylist-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    /* スタイル詳細 */
+    .round-img {
+        border-radius: 3rem;
+    }
+
+    .card-profile {
+        width: 700px;
+        border: 0;
+    }
+
+    .button {
+        width: 150px;
+    }
+
+    .btn {
+        font-size: 80%;
+        font-weight: bold;
+    }
+
+    .profile_table {
+        width: 100%;
+        border: 1px solid #000;
+        border-collapse: separate;
+        overflow: hidden;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .profile_table .header {
+        width: 200px;
+        padding: 16px 24px;
+        text-align: left;
+        background: #000;
+        color: #fff;
+    }
+
+    .profile_table .data {
+        padding: 16px 24px;
+    }
+
+    /* profile */
+    .mypage_img {
+        object-fit: cover;
+        width: 100px;
+        height: 100px;
+    }
+
+    /* profile_edit */
+    .form_wrap {
+        display: grid;
+        gap: 16px;
+    }
+
+    .form_wrap-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form-control:focus {
+        box-shadow: none;
+    }
+
+
+
+    /* ログイン画面 */
+    .card-auth {
+        width: 400px;
+        border: 0;
+        box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .card-title {
+        margin-bottom: 2rem;
+        font-size: 1.5rem;
+    }
+
+    .card-body {
+        padding: 2rem;
+    }
+
+    .form-auth {
+        width: 100%;
+    }
+
+    .form-label-group {
+        margin-bottom: 1rem;
+    }
+
+    /* 決済 */
+    /* stripe */
+    .StripeElement {
+        background-color: #F1F1F1;
+        height: 40px;
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 4px;
+        border: 1px solid transparent;
+        box-shadow: 0 1px 3px 0 #e6ebf1;
+        -webkit-transition: box-shadow 150ms ease;
+        transition: box-shadow 150ms ease;
+    }
+
+    .StripeElement--focus {
+        box-shadow: 0 1px 3px 0 #cfd7df;
+    }
+
+    .StripeElement--invalid {
+        border-color: #fa755a;
+    }
+
+    .StripeElement--webkit-autofill {
+        background-color: #fefde5 !important;
+    }
 }
 
-.card-title {
-    margin-bottom: 2rem;
-    font-size: 1.5rem;
+
+@media screen and (min-width:768px){
+    /* for iPad */
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    p {
+        color: #0f000f;
+    }
+    .border {
+        padding: 0;
+        margin: 0;
+    }
+    .container {
+        padding-left: 4px;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-right: 0;
+    }
+    .row {
+        margin: 0;
+    }
+    body {
+        background: #fff;
+        min-height: 100vh;
+        display: flex;
+    }
+
+    .nav-bar {
+        width: 20%;
+        box-shadow: 4px 0px;
+    }
+
+    .side-bar {
+        position: sticky;
+        top: 10px;
+    }
+
+    main {
+        flex: 1;
+        width: 80%;
+    }
+
+    .content {
+        min-height: 100vh;
+    }
+    .content-wrap {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+    a:hover {
+        color: #000;
+        opacity: 0.5;
+    }
+    ol, ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    img {
+        object-fit: cover;
+    }
+
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* ナビゲーション */
+    .side-logo {
+        text-align: center;
+    }
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+    }
+    .nav-item {
+        margin: 5px;
+        padding: 0;
+        text-align: center;
+    }
+    .nav-link {
+        padding: 0;
+    }
+    .side-icon {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .side-icon i {
+        font-size: 1.5rem;
+    }
+    .side-info {
+        margin: 10px 0px;
+        text-align: center;
+    }
+
+    /* 全体 */
+    .page-top-img {
+        display: inline-block;
+        height: 400px;
+        width: 100%;
+    }
+
+
+    /* index */
+    /* カルーセル */
+    .carousel-item img {
+        display: inline-block;
+        height: 400px;
+        width: 100%;
+    }
+    /* コンセプト */
+    .top-about {
+        display: flex;
+        justify-content: center;
+    }
+
+    /* スタイリスト一覧 */
+    .top-stylist-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    /* スタイル詳細 */
+    .round-img {
+        border-radius: 3rem;
+    }
+
+    .card-profile {
+        width: 700px;
+        border: 0;
+    }
+
+    .button {
+        width: 150px;
+    }
+
+    .btn {
+        font-size: 80%;
+        font-weight: bold;
+    }
+
+    .profile_table {
+        width: 100%;
+        border: 1px solid #000;
+        border-collapse: separate;
+        overflow: hidden;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .profile_table .header {
+        width: 200px;
+        padding: 16px 24px;
+        text-align: left;
+        background: #000;
+        color: #fff;
+    }
+
+    .profile_table .data {
+        padding: 16px 24px;
+    }
+
+    /* profile */
+    .mypage_img {
+        object-fit: cover;
+        width: 100px;
+        height: 100px;
+    }
+
+    /* profile_edit */
+    .form_wrap {
+        display: grid;
+        gap: 16px;
+    }
+
+    .form_wrap-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form-control:focus {
+        box-shadow: none;
+    }
+
+
+
+    /* ログイン画面 */
+    .card-auth {
+        width: 400px;
+        border: 0;
+        box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .card-title {
+        margin-bottom: 2rem;
+        font-size: 1.5rem;
+    }
+
+    .card-body {
+        padding: 2rem;
+    }
+
+    .form-auth {
+        width: 100%;
+    }
+
+    .form-label-group {
+        margin-bottom: 1rem;
+    }
+
+    /* 決済 */
+    /* stripe */
+    .StripeElement {
+        background-color: #F1F1F1;
+        height: 40px;
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 4px;
+        border: 1px solid transparent;
+        box-shadow: 0 1px 3px 0 #e6ebf1;
+        -webkit-transition: box-shadow 150ms ease;
+        transition: box-shadow 150ms ease;
+    }
+
+    .StripeElement--focus {
+        box-shadow: 0 1px 3px 0 #cfd7df;
+    }
+
+    .StripeElement--invalid {
+        border-color: #fa755a;
+    }
+
+    .StripeElement--webkit-autofill {
+        background-color: #fefde5 !important;
+    }
 }
 
-.card-body {
-    padding: 2rem;
-}
 
-.form-auth {
-    width: 100%;
-}
 
-.form-label-group {
-    margin-bottom: 1rem;
-}
 
-/* 決済 */
-/* stripe */
-.StripeElement {
-    background-color: #F1F1F1;
-    height: 40px;
-    width: 100%;
-    padding: 10px 12px;
-    border-radius: 4px;
-    border: 1px solid transparent;
-    box-shadow: 0 1px 3px 0 #e6ebf1;
-    -webkit-transition: box-shadow 150ms ease;
-    transition: box-shadow 150ms ease;
-}
+@media screen and (min-width: 1024px) {
+    /* for PC */
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    p {
+        color: #0f000f;
+    }
+    .border {
+        padding: 0;
+        margin: 0;
+    }
+    .container {
+        padding-left: 4px;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-right: 0;
+    }
+    .row {
+        margin: 0;
+    }
+    body {
+        background: #fff;
+        min-height: 100vh;
+        display: flex;
+    }
 
-.StripeElement--focus {
-    box-shadow: 0 1px 3px 0 #cfd7df;
-}
+    .img-news {
+        object-fit: cover;
+    }
 
-.StripeElement--invalid {
-    border-color: #fa755a;
-}
+    .nav-bar {
+        width: 20%;
+        box-shadow: 4px 0px;
+    }
 
-.StripeElement--webkit-autofill {
-    background-color: #fefde5 !important;
+    .side-bar {
+        position: sticky;
+        top: 10px;
+    }
+
+    main {
+        flex: 1;
+        width: 80%;
+    }
+
+    .content {
+        min-height: 100vh;
+    }
+    .content-wrap {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+    a:hover {
+        color: #000;
+        opacity: 0.5;
+    }
+    ol, ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    img {
+        object-fit: cover;
+    }
+
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* ナビゲーション */
+    .side-logo {
+        text-align: center;
+    }
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+    }
+    .nav-item {
+        margin: 5px;
+        padding: 0;
+        text-align: center;
+    }
+    .nav-link {
+        padding: 0;
+    }
+    .side-icon {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .side-icon i {
+        font-size: 1.5rem;
+    }
+    .side-info {
+        margin: 10px 0px;
+        text-align: center;
+    }
+
+    /* 全体 */
+    .page-top-img {
+        display: inline-block;
+        height: 400px;
+        width: 100%;
+    }
+
+
+    /* index */
+    /* カルーセル */
+    .carousel-item img {
+        display: inline-block;
+        height: 400px;
+        width: 100%;
+    }
+    /* コンセプト */
+    .top-about {
+        display: flex;
+        justify-content: center;
+    }
+
+    /* スタイリスト一覧 */
+    .top-stylist-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    /* スタイル詳細 */
+    .round-img {
+        border-radius: 3rem;
+    }
+
+    .card-profile {
+        width: 700px;
+        border: 0;
+    }
+
+    .button {
+        width: 150px;
+    }
+
+    .btn {
+        font-size: 80%;
+        font-weight: bold;
+    }
+
+    .profile_table {
+        width: 100%;
+        border: 1px solid #000;
+        border-collapse: separate;
+        overflow: hidden;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .profile_table .header {
+        width: 200px;
+        padding: 16px 24px;
+        text-align: left;
+        background: #000;
+        color: #fff;
+    }
+
+    .profile_table .data {
+        padding: 16px 24px;
+    }
+
+    /* profile */
+    .mypage_img {
+        object-fit: cover;
+        width: 100px;
+        height: 100px;
+    }
+
+    /* profile_edit */
+    .form_wrap {
+        display: grid;
+        gap: 16px;
+    }
+
+    .form_wrap-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form-control:focus {
+        box-shadow: none;
+    }
+
+
+
+    /* ログイン画面 */
+    .card-auth {
+        width: 400px;
+        border: 0;
+        box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .card-title {
+        margin-bottom: 2rem;
+        font-size: 1.5rem;
+    }
+
+    .card-body {
+        padding: 2rem;
+    }
+
+    .form-auth {
+        width: 100%;
+    }
+
+    .form-label-group {
+        margin-bottom: 1rem;
+    }
+
+    /* 決済 */
+    /* stripe */
+    .StripeElement {
+        background-color: #F1F1F1;
+        height: 40px;
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 4px;
+        border: 1px solid transparent;
+        box-shadow: 0 1px 3px 0 #e6ebf1;
+        -webkit-transition: box-shadow 150ms ease;
+        transition: box-shadow 150ms ease;
+    }
+
+    .StripeElement--focus {
+        box-shadow: 0 1px 3px 0 #cfd7df;
+    }
+
+    .StripeElement--invalid {
+        border-color: #fa755a;
+    }
+
+    .StripeElement--webkit-autofill {
+        background-color: #fefde5 !important;
+    }
 }

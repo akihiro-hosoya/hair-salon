@@ -1,5 +1,5 @@
+/* ---------- for smartphone ---------- */
 @media screen and (min-width:480px){
-    /* for iPad */
     *{
         margin: 0;
         padding: 0;
@@ -492,9 +492,8 @@
 
 
 
-
+/* ---------- for iPad PC ----------- */
 @media screen and (min-width: 1024px) {
-    /* for PC */
     *{
         margin: 0;
         padding: 0;

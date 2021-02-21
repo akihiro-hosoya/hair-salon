@@ -76,7 +76,7 @@
                                     {% for stylist in staff_data|slice:":3" %}
                                     <div class="col-3 px-0">
                                         {% if stylist.image %}
-                                        <a href="{% url 'stylist_detail' stylist.pk  %}" class="stretched-link">
+                                        <a href="{% url 'stylist_detail' stylist.pk  %}" class="">
                                             <img src="{{ stylist.image.url }}" alt="" class="top-stylist-img">
                                         </a>
                                         {% endif %}
@@ -105,7 +105,7 @@
                                     {% for style in style_data|slice:":5" %}
                                     <div class="col-2 px-0">
                                         {% if style.image %}
-                                        <a href="{% url 'style_detail' style.pk  %}" class="stretched-link">
+                                        <a href="{% url 'style_detail' style.pk  %}" class="">
                                             <img src="{{ style.image.url }}" alt="" class="top-stylist-img">
                                         </a>
                                         {% endif %}
